@@ -1,0 +1,18 @@
+# Build and cache
+cache/
+coverage/
+out/
+
+# Dependencies
+node_modules/
+
+# Local files
+*.env
+*.log
+.DS_Store
+
+# Coverage
+lcov.info
+
+# Broadcasts
+broadcast/
