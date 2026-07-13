@@ -43,11 +43,7 @@ contract PaymentProcessor is IPaymentLedger, ReentrancyGuard {
         uint256 currentBalance = _balances[msg.sender];
 
         if (amount > currentBalance) {
-            revert InsufficientBalance(
-                msg.sender,
-                amount,
-                currentBalance
-            );
+            revert InsufficientBalance(msg.sender, amount, currentBalance);
         }
 
         _balances[msg.sender] = currentBalance - amount;
@@ -62,12 +58,7 @@ contract PaymentProcessor is IPaymentLedger, ReentrancyGuard {
     //////////////////////////////////////////////////////////////*/
 
     /// @inheritdoc IPaymentLedger
-    function balanceOf(address account)
-        external
-        view
-        override
-        returns (uint256)
-    {
+    function balanceOf(address account) external view override returns (uint256) {
         return _balances[account];
     }
 
